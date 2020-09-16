@@ -1,5 +1,40 @@
+@font-face {
+    font-family: 'League Gothic';
+    src: url('../../imgs/webfonts/leaguegothic-regular-webfont.eot');
+    src: url('../../imgs/webfonts/leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../imgs/webfonts/leaguegothic-regular-webfont.woff') format('woff'),
+         url('../../imgs/webfonts/leaguegothic-regular-webfont.ttf') format('truetype'),
+         url('../../imgs/webfonts/leaguegothic-regular-webfont.svg#league_gothicregular') format('svg');
+    font-weight: normal;
+    font-style: normal; 
+
+}
+
+.film{
+    height: 80vh;
+   
+   /*  background: linear-gradient(red , blue); */
+    /* url(${props.img}) */
+}
+
 .banner{
     width: 75vw;
     padding: 20px 30px;
     margin: 0 auto;
+}
+
+.header-tird{
+    font-family: 'League Gothic';
+    font-weight: 100;
+    font-size: 25px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.main-paragraph{
+    width: 55%;
+    font-size: 12px;
+    font-weight: 10;
+    color: #fff;
+    margin-bottom: 40px;
 }
