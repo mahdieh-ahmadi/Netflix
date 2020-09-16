@@ -1,0 +1,29 @@
+.navBtn {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    transition: all 0.3s;
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 3px;
+}
+
+.navBtn:hover{
+    background-color: rgb(209, 0, 0);
+}
+
+.redBtn{
+    background-color: rgb(209, 0, 0);
+    color: #fff;
+    border-radius: 5px;
+    padding: 8px 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+.redBtn:hover{
+    background-color: transparent;
+    border: 1px solid rgb(209, 0, 0);
+}

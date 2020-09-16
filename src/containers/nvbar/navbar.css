@@ -1,0 +1,26 @@
+.navbar{
+    width: 100%;
+    background: linear-gradient(to bottom , black  , transparent 100%);
+    padding: 50px 20px;
+    box-sizing: border-box;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(250px , auto));
+    justify-items: center;
+    align-items: center; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input_section{
+    text-align: center;
+    width: 45vw;
+}
+
+.logo-img{
+    width: 15vw;
+}
+
+.logo-img img{
+    width: 100%;
+}
