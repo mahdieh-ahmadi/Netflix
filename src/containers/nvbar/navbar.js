@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Btn from '../../components/buttons/button'
-import Logo  from '../../components/logo/logo'
 import Input from '../../components/input/input'
 import img from  '../../imgs/Logo_Netflix.png'
 import './navbar.css'
@@ -10,8 +9,7 @@ const NavBar = props => {
     const {isSignIn} = props
     return <nav className='navbar'>
         <div className='logo-img'>
-            {/* <Logo title = 'netflix'/> */}
-            <img src={img}/>
+            <img src={img} alt='logo netflix'/>
         </div>
         <div>
         <Btn title = 'Brows' class='navBtn'/>
@@ -22,7 +20,7 @@ const NavBar = props => {
         <div className='input_section'>
             <Input />
         </div>
-        {isSignIn ? <div> <img src={props.src} alt={props.name}/> {props.name} </div> : 
+        {isSignIn ? <div className='pesonal_img'>{props.name} <img src={props.src} alt={props.name} />  </div> : 
         <Btn title='Sign in' class = 'redBtn'/>}
         
     </nav>
