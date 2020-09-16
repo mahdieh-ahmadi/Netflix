@@ -10,7 +10,7 @@ const Film = props => {
             <p>{props.paragraph}</p>
         </div>
         <div>
-            <img  src={props.src} />
+            <img  src={props.src} alt={props.name}/>
         </div>
     </div>
 }
