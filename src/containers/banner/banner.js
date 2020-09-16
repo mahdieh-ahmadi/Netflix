@@ -7,8 +7,10 @@ import './banner.css'
 const Banner = props => {
     return <div 
     className='film' 
-    style={{'background' : ` linear-gradient(to bottom , rgba(78, 78, 78, 1) 5%,rgba(77, 77, 77, 0.7), rgba(77, 77, 77, 1)), url(${props.img}) ` , 
-    'backgroundPosition' : 'center'}}>
+    style={{'background' : 
+    ` linear-gradient(to bottom , rgba(78, 78, 78, 1) 5%,rgba(77, 77, 77, 0.7), rgba(77, 77, 77, 1)), url(${props.img}) ` , 
+    'backgroundPosition' : 
+    'center'}}>
         <div className='banner'>
             <Logo title={props.filmName}/>
             <h3 className='header-tird'>{props.titr}</h3>

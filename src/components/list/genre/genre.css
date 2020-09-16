@@ -1,0 +1,13 @@
+.genre-list{
+    padding: 10px 30px;
+    display: grid;
+    grid-template-columns: repeat(5 ,1fr);
+    grid-gap: 10px;
+    padding-bottom: 80px;
+}
+
+.genre_header{
+    padding: 0 30px;
+    color: #fff;
+    font-size: 25px;
+}
