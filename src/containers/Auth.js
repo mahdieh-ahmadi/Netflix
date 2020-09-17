@@ -73,7 +73,7 @@ const Auth = props => {
             <Input type='password' placeholder = 'Password ...' Change={event => passwordHandler(event)}/>
             <span>
                 <Link to='/'><Btn title='Cancle' class='border_red_btn'/></Link>
-                <Btn title='Sign in' class='border_gray_btn' click={event => btnFun(event)}/>
+                <Btn title={signup ? 'Sign in' : 'Sign up'} class='border_gray_btn' click={event => btnFun(event)}/>
             </span>
         </form>}
     </div>
