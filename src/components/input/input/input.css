@@ -15,5 +15,5 @@
 }
 
 .input:focus{
-    border-color: rgb(209, 0, 0);
+    border-bottom: 2px solid #fff;
 }

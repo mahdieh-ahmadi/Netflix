@@ -10,6 +10,7 @@ return <div className='genre'>
      <div className='genre-list'>
         {props.dataFilm.map(i => {
             return  <Film 
+            key = {i.name + Math.random}
             name = {i.name }
             rate={i.rate} 
             paragraph={i.paragraph}
