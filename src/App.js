@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter, Route , Switch} from 'react-router-dom'
 
 import Main from './containers/mainPage'
+import Auth from './containers/Auth'
 
 
 class App extends Component {
@@ -9,7 +10,11 @@ class App extends Component {
     return (
       <BrowserRouter>
       <div className="App">
-        <Main />
+        <Switch>
+        <Route path = '/Auth' component={ Auth }/>
+        <Route path = '/' component={ Main }/>
+        </Switch>
+        
       </div>
       </BrowserRouter>
     );
