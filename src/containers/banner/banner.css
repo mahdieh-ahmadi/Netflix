@@ -12,9 +12,8 @@
 
 .film{
     height: 80vh;
-   
-   /*  background: linear-gradient(red , blue); */
-    /* url(${props.img}) */
+   width: 100%;
+   box-sizing: border-box;
 }
 
 .banner{

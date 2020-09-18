@@ -20,7 +20,7 @@ const Main = props => {
     return <div className='main'>
         <NavBar isSignIn={props.login} src={img} name = {props.name}/>
         <Banner 
-        img = {img}
+        img = {props.dataFilm.addres}
         filmName = {props.dataFilm.name} 
         titr = {props.dataFilm.titr}
         paragrapf={ props.dataFilm.detail}/>

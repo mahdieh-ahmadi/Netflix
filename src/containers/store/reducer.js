@@ -6,9 +6,10 @@ const initialState = {
     email : '',
     name : '',
     filmDate : {
-        name : 'narcos' ,
+        name : 'intrestllar' ,
         titr : 'Season 2 now available',
-        detail : " Lorem ipsum dolor, sit amet consectetur adipisicing elit.Nesciunt nobis numquam minima saepe et excepturi odio voluptates doloremque,est atque!"
+        detail : " Lorem ipsum dolor, sit amet consectetur adipisicing elit.Nesciunt nobis numquam minima saepe et excepturi odio voluptates doloremque,est atque!",
+        addres : 'https://images-na.ssl-images-amazon.com/images/I/516j7Sqay4L._AC_.jpg'
     }
 }
 
@@ -20,7 +21,7 @@ const reducer = (state = initialState , action) => {
         case (actions.logout):
             return{...state , login : false , datalogin : '' , email : '' , name : ''} 
         case (actions.showFilm):
-            return{...state , filmDate: {...initialState.filmDate , name:action.name , detail : action.detail , titr : action.titr}}
+            return{...state , filmDate: {...initialState.filmDate , name:action.name , detail : action.detail , titr : action.titr , addres : action.src}}
     
         default:
             return state

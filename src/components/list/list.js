@@ -1,30 +1,41 @@
-import React from 'react'
+import React , {useEffect , useState} from 'react'
 import {connect} from 'react-redux'
 import * as actions from '../../containers/store/actions'
 
 import Genre from './genre/genre'
-import img from '../../imgs/img16.jpg'
 
 const List = props => {
-    const dataFilm = [
-        {name:'The Boys' , rate : 8.4 , titr : 'Season 5 now available' , paragraph: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.' , src : img},
-        {name:'Lucifer' , rate : 8.5 , titr : 'Season 7 now available' , paragraph: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.' , src : img},
-        {name:'Kobra Cai' , rate : 8. , titr : 'Season 3 now available' , paragraph: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.' , src : img},
-        {name:'Raised by wolves'  , titr : 'Season 1 now available' , rate : 7.5 , paragraph: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.' , src : img},
-        {name:'The 100' , rate : 7 , titr : 'Season 2 now available' , paragraph: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.'  , src : img}]
+    const [load , setload] = useState(false)
+    const [dataFilm , setDatefilm] = useState([])
+    useEffect(() => {
+        let url = 'https://netflix-myproject.firebaseio.com/top-tvs.json'
+        fetch( url ,{
+            method:'GET',
+            headers : {'Content-type' :'application/json' }
+        }).then(response =>  response.json() )
+        .then(data => {
+            let datalogin = []
+            for(let i in data){
+                datalogin.push(data[i]) 
+            }
+            setload(true)
+            setDatefilm(datalogin)})
+    } , [])
 
-        const change = (name , paragraph , titr) => {
-            props.changeshowFilm(name , paragraph , titr)
+        const change = (name , paragraph , titr , src) => {
+            props.changeshowFilm(name , paragraph , titr , src)
         }
     
     return <div>
-        <Genre dataFilm={dataFilm} title='Top TV pickes for Jack' change={change}/>
-        <Genre dataFilm={dataFilm} title='Comedy magic' change={change}/>
+        {load ? <div><Genre dataFilm={dataFilm} title='Top TV pickes for Jack' change={change}/>
+        <Genre dataFilm={dataFilm} title='Comedy magic' change={change}/></div> : 
+        <p> loading ... </p>}
+        
         </div>
 }
 
 const MapDispatchtoProps = dispatch => {return{
-    changeshowFilm : (name , detail , titr) => dispatch({type : actions.showFilm , name : name , detail : detail , titr : titr})
+    changeshowFilm : (name , detail , titr , src) => dispatch({type : actions.showFilm , name : name , detail : detail , titr : titr , src : src})
 }}
 
 export default connect(null , MapDispatchtoProps)(List)
