@@ -3,7 +3,7 @@ import React from 'react'
 import './film.css'
 
 const Film = props => {
-    return <div className='film_item'>
+    return <div className='film_item' onClick={props.click}>
         <div>
             <h2>{props.name}</h2>
             <div>{props.rate} / 10</div>

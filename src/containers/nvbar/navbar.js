@@ -12,7 +12,7 @@ const NavBar = props => {
     const {isSignIn} = props
 
     const signout = () => {
-        localStorage.removeItem('idToken')
+        localStorage.removeItem('logindata')
         props.logout()
     }
 

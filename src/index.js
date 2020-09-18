@@ -1,5 +1,5 @@
 import React from 'react';
-import {createStore} from 'redux'
+import {createStore , compose} from 'redux'
 import {Provider} from 'react-redux'
 import ReactDOM from 'react-dom';
 
@@ -8,7 +8,8 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import reducer from './containers/store/reducer'
 
-const reactRedux = createStore(reducer)
+const componentEnhance = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const reactRedux = createStore(reducer , componentEnhance())
 
 ReactDOM.render( <Provider store={reactRedux}><App /></Provider>, document.getElementById( 'root' ) );
 registerServiceWorker();

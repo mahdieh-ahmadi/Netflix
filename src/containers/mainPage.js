@@ -9,32 +9,34 @@ import img from '../imgs/img16.jpg'
 import * as actions from './store/actions'
 
 const Main = props => {
+
     useEffect(() => {
-        const id = localStorage.getItem('idToken')
+        const id = JSON.parse(localStorage.getItem('logindata'))
         if(id){
-            props.switchToLogin(id)
+            props.switchToLogin(id , props.email , id.name)
         }
     } , [])
 
     return <div className='main'>
-        <NavBar isSignIn={props.login} src={img} name = 'Mahdie Ahmadi'/>
+        <NavBar isSignIn={props.login} src={img} name = {props.name}/>
         <Banner 
         img = {img}
-        filmName='narcos' 
-        titr='Season 2 now available' 
-        paragrapf=' Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Nesciunt nobis numquam minima saepe et excepturi odio voluptates doloremque,
-                est atque!'/>
+        filmName = {props.dataFilm.name} 
+        titr = {props.dataFilm.titr}
+        paragrapf={ props.dataFilm.detail}/>
         <List />
     </div>
 }
 
 const mapStateToProps = state => {return{
-    login : state.login
+    login : state.login,
+    email : state.email,
+    name : state.name,
+    dataFilm : state.filmDate
 }}
 
 const mapDispatchToProps = dispatch => {return{
-    switchToLogin : dataLogin => dispatch({type:actions.login , data:dataLogin})
+    switchToLogin : (dataLogin , email , name) => dispatch({type:actions.login , data:dataLogin , email : email , name : name})
 }}
 
 
