@@ -1,11 +1,12 @@
 import React,{ useState } from 'react'
+import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
 
 import Input from '../components/input/input/input'
 import Btn from '../components/buttons/button'
-import Spinner from '../components/sppiner/sppiner'
+import * as actions from '../containers/store/actions'
 
 import './Auth.css'
 import Spiner from '../components/sppiner/sppiner'
@@ -14,8 +15,9 @@ let email = '';
 let password = '';
 
 const Auth = props => {
+
     const [signup , setSignup] = useState(true) // if true => signin
-    const [spinner , setSpinner] = useState(false)
+    const [loading , setSpinner] = useState(false)
     const [error , setError] = useState(false)
 
     const emailhandler =  event => {
@@ -32,7 +34,7 @@ const Auth = props => {
 
     const btnFun = event => {
         event.preventDefault()
-        if(email == "" || email == null || password == "" || password == null){
+        if(email === "" || email === null || password === "" || password === null){
             alert('pleas fill the filed!')
             return
         }
@@ -52,20 +54,21 @@ const Auth = props => {
         .then( response => {
             setSpinner(false)
             setError(false)
+            props.switchToLogin(response.data.idToken)
+        
             if(signup){
                 props.history.push('/')
             }
         }
         ).catch(errore => {
-            console.log(errore)
             setError(true)
             setSpinner(false)
         }
         ) 
     }
-
+    
     return <div className='Auth'>
-        {spinner ? <div className='spiner'><Spiner /></div>:
+        {loading ? <div className='spiner'><Spiner /></div>:
         <form>
         <h2 onClick={Switch}>{signup ? 'Switch to signup' : 'Switch to login'}</h2>
         {error ? <p className='error-massage'>error!</p> : null}
@@ -79,4 +82,9 @@ const Auth = props => {
     </div>
 }
 
-export default Auth
+
+const mapDispatchToProps = dispatch => {return{
+    switchToLogin : dataLogin => dispatch({type:actions.login , data:dataLogin})
+}}
+
+export default connect(null,mapDispatchToProps)(Auth)

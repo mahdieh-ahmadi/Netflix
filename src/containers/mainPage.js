@@ -1,15 +1,23 @@
-import React from 'react'
+import React,{useEffect} from 'react'
+import {connect} from 'react-redux'
 
 import NavBar from './nvbar/navbar'
 import Banner from './banner/banner'
 import List from '../components/list/list'
 import './mainpage.css'
 import img from '../imgs/img16.jpg'
+import * as actions from './store/actions'
 
-const signin = false
-const Main = () => {
+const Main = props => {
+    useEffect(() => {
+        const id = localStorage.getItem('idToken')
+        if(id){
+            props.switchToLogin(id)
+        }
+    } , [])
+
     return <div className='main'>
-        <NavBar isSignIn={signin} src={img} name = 'Mahdie Ahmadi'/>
+        <NavBar isSignIn={props.login} src={img} name = 'Mahdie Ahmadi'/>
         <Banner 
         img = {img}
         filmName='narcos' 
@@ -21,6 +29,16 @@ const Main = () => {
     </div>
 }
 
-export default Main
+const mapStateToProps = state => {return{
+    login : state.login
+}}
+
+const mapDispatchToProps = dispatch => {return{
+    switchToLogin : dataLogin => dispatch({type:actions.login , data:dataLogin})
+}}
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Main)
 
                

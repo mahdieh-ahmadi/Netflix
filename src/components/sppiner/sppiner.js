@@ -3,10 +3,10 @@ import React from 'react'
 import './sppiner.css'
 
 const Spiner = () => {
-    return <div class="fancy-spinner">
-    <div class="ring"></div>
-    <div class="ring"></div>
-    <div class="dot"></div>
+    return <div className="fancy-spinner">
+    <div className="ring"></div>
+    <div className="ring"></div>
+    <div className="dot"></div>
   </div>
 }
 
