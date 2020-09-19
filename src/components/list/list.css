@@ -1,0 +1,11 @@
+.load-box{
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    color: #fff;
+    font-size: 20px;
+}
+
+.load-box *{
+    margin: 0 auto;
+}

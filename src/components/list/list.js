@@ -1,25 +1,56 @@
 import React , {useEffect , useState} from 'react'
 import {connect} from 'react-redux'
-import * as actions from '../../containers/store/actions'
 
+import * as actions from '../../containers/store/actions'
 import Genre from './genre/genre'
+import Loading from '../sppiner/sppiner'
+import './list.css'
 
 const List = props => {
     const [load , setload] = useState(false)
-    const [dataFilm , setDatefilm] = useState([])
+    const [TopdataFilm , setTopDatefilm] = useState([])
+    const [ComedydataFilm , setOmedyDatefilm] = useState([])
+    const [errorMasage , seterrorMasage] = useState('')
+
     useEffect(() => {
-        let url = 'https://netflix-myproject.firebaseio.com/top-tvs.json'
-        fetch( url ,{
+        let topurl = 'https://netflix-myproject.firebaseio.com/top-tvs.json'
+        let comedyurl = 'https://netflix-myproject.firebaseio.com/Comedy magic.json'
+
+        fetch( topurl ,{
             method:'GET',
             headers : {'Content-type' :'application/json' }
         }).then(response =>  response.json() )
         .then(data => {
+            console.log(data)
             let datalogin = []
             for(let i in data){
                 datalogin.push(data[i]) 
             }
             setload(true)
-            setDatefilm(datalogin)})
+            seterrorMasage('')
+            setTopDatefilm(datalogin)}).catch(error => {
+                console.log(error)
+                seterrorMasage('Failed to fetch' )
+                setload(true)
+            })
+
+            fetch( comedyurl ,{
+                method:'GET',
+                headers : {'Content-type' :'application/json' }
+            }).then(response =>  response.json() )
+            .then(data => {
+                console.log(data)
+                let datalogin = []
+                for(let i in data){
+                    datalogin.push(data[i]) 
+                }
+                setload(true)
+                seterrorMasage('')
+                setOmedyDatefilm(datalogin)}).catch(error => {
+                    console.log(error)
+                    seterrorMasage('Failed to fetch' )
+                    setload(true)
+                })
     } , [])
 
         const change = (name , paragraph , titr , src) => {
@@ -27,10 +58,10 @@ const List = props => {
         }
     
     return <div>
-        {load ? <div><Genre dataFilm={dataFilm} title='Top TV pickes for Jack' change={change}/>
-        <Genre dataFilm={dataFilm} title='Comedy magic' change={change}/></div> : 
-        <p> loading ... </p>}
-        
+        {load ? errorMasage === ''  ? <div><Genre dataFilm={TopdataFilm} title='Top TV pickes for Jack' change={change}/>
+        <Genre dataFilm={ComedydataFilm} title='Trending now' change={change}/></div> : <div className='load-box'><p>{errorMasage}</p></div> :
+        <div className='load-box'><Loading /></div>}
+
         </div>
 }
 

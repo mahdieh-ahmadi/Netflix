@@ -34,6 +34,7 @@
 
 .film_item:hover div:last-child{
     transform: scale(1.2);
+    opacity: 0.5;
 }
 
 .film_item div:first-child h2{
