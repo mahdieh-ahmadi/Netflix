@@ -48,6 +48,10 @@ const NavBar = props => {
             <div className='logo-img'>
                 <img src={img} alt='logo netflix'/>
             </div>
+
+            {isSignIn ? <div className='pesonal_img'>{props.name} <img src={props.src} alt={props.name} />  </div> : 
+            <Link to='/Auth'><Btn title='Sign in' class = 'redBtn'/></Link>}
+            
             <div className='hamberger' onClick={showNav}><div className='hamberger_btn'></div></div>
         </div>
 

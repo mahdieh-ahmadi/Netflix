@@ -4,21 +4,17 @@
     height: 20vh;
     padding: 0 20px; 
     box-sizing: border-box;
-    /* display: grid;
-    grid-template-columns: repeat(auto-fit , minmax(250px , auto));
-    justify-items: center;
-    align-items: center; */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 5000;
 }
 
 .phone_nav{
-    display: none;
+    display: none; 
 }
 
 .navbar_phone{
@@ -32,6 +28,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 4500;
 }
 
 .display{

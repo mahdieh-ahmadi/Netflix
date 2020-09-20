@@ -17,3 +17,10 @@
 .input:focus{
     border-bottom: 2px solid #fff;
 }
+
+@media(max-width : 450px){
+    .input{
+        font-size: 15px;
+        letter-spacing: 0.5px;
+    }
+}

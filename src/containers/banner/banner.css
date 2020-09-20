@@ -11,9 +11,10 @@
 }
 
 .film{
-    height: 80vh;
+    height: 100vh;
    width: 100%;
    box-sizing: border-box;
+   padding-top: 20vh;
 }
 
 .banner{
@@ -50,7 +51,9 @@
 
 @media(max-width : 650px){
     .banner{
-        width: 95vw;
+        width: 90vw;
+        box-sizing: border-box;
+        padding-left: 0px;
     }
 
     .main-paragraph{

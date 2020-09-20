@@ -11,3 +11,17 @@
     color: #fff;
     font-size: 25px;
 }
+
+@media(max-width : 750px){
+    .genre-list{
+        grid-template-columns: 60vw;
+        justify-content: center;
+    }
+}
+
+@media(max-width : 350px){
+    .genre-list{
+        grid-template-columns: 85vw;
+        justify-content: center;
+    }
+}
