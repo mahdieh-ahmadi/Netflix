@@ -23,3 +23,17 @@
     font-family:  'League Gothic';
     text-transform: uppercase;
 }
+
+@media(max-width : 900px){
+    .logo{
+        font-size: 100px;
+        letter-spacing: 10px;
+    }
+}
+
+@media(max-width : 650px){
+    .logo{
+        font-size: 55px;
+        letter-spacing: 5px;
+    }
+}

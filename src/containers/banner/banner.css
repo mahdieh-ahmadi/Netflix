@@ -37,3 +37,23 @@
     color: #fff;
     margin-bottom: 40px;
 }
+
+@media(max-width : 900px){
+    .banner{
+        width: 85vw;
+    }
+
+    .main-paragraph{
+        width: 70%;
+    }
+}
+
+@media(max-width : 650px){
+    .banner{
+        width: 95vw;
+    }
+
+    .main-paragraph{
+        width: 85%;
+    }
+}
