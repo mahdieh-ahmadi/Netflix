@@ -3,6 +3,7 @@ import {BrowserRouter, Route , Switch} from 'react-router-dom'
 
 import Main from './containers/mainPage'
 import Auth from './containers/Auth'
+import Select from './containers/Show_movie'
 
 
 class App extends Component {
@@ -11,7 +12,8 @@ class App extends Component {
       <BrowserRouter>
       <div className="App">
         <Switch>
-        <Route path = '/Auth' component={ Auth }/>
+        <Route path = '/Auth'  component={ Auth }/>
+        <Route path = '/Select_movie'  component={ Select }/>
         <Route path = '/' component={ Main }/>
         </Switch>
         

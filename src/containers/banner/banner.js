@@ -1,5 +1,6 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import {connect } from 'react-redux'
+import {Link} from 'react-router-dom'
 
 import Logo from '../../components/logo/logo'
 import Btn from '../../components/buttons/button'
@@ -16,7 +17,7 @@ const Banner = props => {
             <h3 className='header-tird'>{props.titr}</h3>
             <p className='main-paragraph'> {props.paragrapf} </p>
             <div className='btns'>
-            <Btn title='Watch now' class='border_red_btn'/>
+            <Link to="Select_movie"><Btn title='Watch now' class='border_red_btn'/></Link>
            {props.login ? <Btn title='+ My list' class='border_gray_btn'/> : null}
             </div>
         </div>
