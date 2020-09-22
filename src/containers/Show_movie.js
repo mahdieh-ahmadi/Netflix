@@ -1,8 +1,10 @@
 import React,{useState , useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import './show_movie.css'
 import Logo from '../components/logo/logo'
+import Btn from '../components/buttons/button'
 
 const Show_movie = props => {
     const [movie , setMovie] = useState('')
@@ -13,7 +15,9 @@ const Show_movie = props => {
 
     return <div style={{'backgroundImage' : ` url(${movie.addres}) `, 'backgroundPosition' : 'top' , 'backgroundSize': '100%' , 'backgroundRepeat': 'no-repeat' , 'backgroundColor' : 'black'}}
         className = 'select_movie'>
-        <div className='movie_header'></div>
+        <div className='movie_header'>
+            <Link to='/'><Btn class='redBtn'  title='Back'/></Link>
+        </div>
         <div className = 'box_movie'>
             <div className = 'box_movie-img'>
                 <img src={movie.addres} alt = {movie.name}/>
