@@ -58,7 +58,7 @@ const Show_movie = props => {
 }
 
 const mapStateToProps = state => {return{
-    select_movie : state.filmDate
+    select_movie : state.login.filmDate
 }}
 
 export default connect(mapStateToProps)(Show_movie)

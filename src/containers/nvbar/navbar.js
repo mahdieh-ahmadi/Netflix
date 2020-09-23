@@ -73,7 +73,7 @@ const NavBar = props => {
 }
 
 const mapStateToProps = state => {return{
-    login : state.login
+    login : state.login.login
 }}
 
 const MapDispatchToProps = dispatch => {return{

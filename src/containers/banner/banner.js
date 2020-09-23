@@ -25,7 +25,7 @@ const Banner = props => {
 }
 
 const mapStateToProps = state => {return{
-    login : state.login
+    login : state.login.login
 }}
 
 export default connect(mapStateToProps)(Banner)

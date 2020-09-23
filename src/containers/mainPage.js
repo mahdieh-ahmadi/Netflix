@@ -29,10 +29,10 @@ const Main = props => {
 }
 
 const mapStateToProps = state => {return{
-    login : state.login,
-    email : state.email,
-    name : state.name,
-    dataFilm : state.filmDate
+    login : state.login.login,
+    email : state.login.email,
+    name : state.login.name,
+    dataFilm : state.login.filmDate
 }}
 
 const mapDispatchToProps = dispatch => {return{
